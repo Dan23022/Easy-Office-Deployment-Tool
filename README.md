@@ -17,5 +17,11 @@ How to run the more difficult way (but still pretty easy)
     config.xml
    
    run the main.py python file from an IDE or from command line and voila :)
+   
+Leave the build field blank for the latest version. 
   
+![image](https://user-images.githubusercontent.com/95471799/216653273-4060e392-cb7e-4385-b605-de43e3cbbb18.png)
+
+![image](https://user-images.githubusercontent.com/95471799/216653318-09efafa9-6b8f-410e-ba9b-ead2d60ef781.png)
+
 
