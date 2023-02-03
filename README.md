@@ -1,4 +1,4 @@
-This application is a user friendly way to change your the following: 
+This application is a user friendly way to change your the following: /n
   Office channel
   OfficeClientEdition (bit)
   Specify an exact office version 
