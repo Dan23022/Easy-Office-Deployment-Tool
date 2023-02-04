@@ -3,7 +3,6 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
 from PyQt5.uic.properties import QtGui, QtCore
 import sys
-import re
 import xml.etree.ElementTree as ET
 import os
 
