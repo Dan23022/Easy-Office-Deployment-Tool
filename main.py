@@ -26,33 +26,29 @@ class MyWindow(QtWidgets.QMainWindow):
         tree = ET.parse("config.xml", parser=parser)
         root = tree.getroot()
 
-        if office_build == int:
-
-            for elememnt in root.iter():
-                if elememnt.tag == "Add":
-                    elememnt.attrib["Channel"] = f"{desired_channel}"
-
-            for elememnt in root.iter():
-                if elememnt.tag == "Add":
-                    elememnt.attrib["Version"] = f"{office_build}"
-
-            for elememnt in root.iter():
-                if elememnt.tag == "Add":
-                    elememnt.attrib["OfficeClientEdition"] = f"{bit}"
-
-            comments = [element for element in root.iter() if element.tag == ET.Comment]
-
-            for comment in comments:
-                if "Enabled" in comment.text:
-                    comment.text = f"  <Updates Enabled=\"{enable_updates}\" Channel=\"{desired_channel}\" />  "
 
 
-            tree.write("config.xml")
-            os.system('setup /configure config.xml')
+        for elememnt in root.iter():
+            if elememnt.tag == "Add":
+                elememnt.attrib["Channel"] = f"{desired_channel}"
 
-        else:
-            error = QMessageBox.question(self, 'MessageBox', "Click a button")
-            return
+        for elememnt in root.iter():
+            if elememnt.tag == "Add":
+                elememnt.attrib["Version"] = f"{office_build}"
+
+        for elememnt in root.iter():
+            if elememnt.tag == "Add":
+                elememnt.attrib["OfficeClientEdition"] = f"{bit}"
+
+        comments = [element for element in root.iter() if element.tag == ET.Comment]
+
+        for comment in comments:
+            if "Enabled" in comment.text:
+                comment.text = f"  <Updates Enabled=\"{enable_updates}\" Channel=\"{desired_channel}\" />  "
+
+
+        tree.write("config.xml")
+        os.system('setup /configure config.xml')
 
 
 
