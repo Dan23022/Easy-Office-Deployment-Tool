@@ -16,6 +16,9 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::NoFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -36,6 +39,12 @@
      <font>
       <pointsize>18</pointsize>
      </font>
+    </property>
+    <property name="accessibleName">
+     <string>Current Channel Dropdown</string>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
     </property>
     <item>
      <property name="text">
@@ -118,6 +127,9 @@
       <pointsize>18</pointsize>
      </font>
     </property>
+    <property name="accessibleName">
+     <string>Enable updates drop down</string>
+    </property>
     <item>
      <property name="text">
       <string>False</string>
@@ -160,6 +172,12 @@
      <font>
       <pointsize>18</pointsize>
      </font>
+    </property>
+    <property name="accessibleName">
+     <string>Office build edit area</string>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="submit_button">
@@ -212,6 +230,9 @@
       <pointsize>18</pointsize>
      </font>
     </property>
+    <property name="accessibleName">
+     <string>Office client edition drop down</string>
+    </property>
     <item>
      <property name="text">
       <string>64</string>
@@ -223,9 +244,25 @@
      </property>
     </item>
    </widget>
+   <zorder>office_channel_label</zorder>
+   <zorder>enable_updates_label</zorder>
+   <zorder>enable_updates_dropdown</zorder>
+   <zorder>office_build_label</zorder>
+   <zorder>office_build_edit_area</zorder>
+   <zorder>submit_button</zorder>
+   <zorder>bit_label</zorder>
+   <zorder>bit_dropdown</zorder>
+   <zorder>channel_dropdown</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>channel_dropdown</tabstop>
+  <tabstop>office_build_edit_area</tabstop>
+  <tabstop>bit_dropdown</tabstop>
+  <tabstop>enable_updates_dropdown</tabstop>
+  <tabstop>submit_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

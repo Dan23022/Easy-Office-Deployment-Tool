@@ -5,6 +5,7 @@ from PyQt5.uic.properties import QtGui, QtCore
 import sys
 import xml.etree.ElementTree as ET
 import os
+import string
 
 
 class MyWindow(QtWidgets.QMainWindow):
@@ -25,27 +26,34 @@ class MyWindow(QtWidgets.QMainWindow):
         tree = ET.parse("config.xml", parser=parser)
         root = tree.getroot()
 
-        for elememnt in root.iter():
-            if elememnt.tag == "Add":
-                elememnt.attrib["Channel"] = f"{desired_channel}"
+        if office_build == int:
 
-        for elememnt in root.iter():
-            if elememnt.tag == "Add":
-                elememnt.attrib["Version"] = f"{office_build}"
+            for elememnt in root.iter():
+                if elememnt.tag == "Add":
+                    elememnt.attrib["Channel"] = f"{desired_channel}"
 
-        for elememnt in root.iter():
-            if elememnt.tag == "Add":
-                elememnt.attrib["OfficeClientEdition"] = f"{bit}"
+            for elememnt in root.iter():
+                if elememnt.tag == "Add":
+                    elememnt.attrib["Version"] = f"{office_build}"
 
-        comments = [element for element in root.iter() if element.tag == ET.Comment]
+            for elememnt in root.iter():
+                if elememnt.tag == "Add":
+                    elememnt.attrib["OfficeClientEdition"] = f"{bit}"
 
-        for comment in comments:
-            if "Enabled" in comment.text:
-                comment.text = f"  <Updates Enabled=\"{enable_updates}\" Channel=\"{desired_channel}\" />  "
+            comments = [element for element in root.iter() if element.tag == ET.Comment]
+
+            for comment in comments:
+                if "Enabled" in comment.text:
+                    comment.text = f"  <Updates Enabled=\"{enable_updates}\" Channel=\"{desired_channel}\" />  "
 
 
-        tree.write("config.xml")
-        os.system('setup /configure config.xml')
+            tree.write("config.xml")
+            os.system('setup /configure config.xml')
+
+        else:
+            error = QMessageBox.question(self, 'MessageBox', "Click a button")
+            return
+
 
 
 
