@@ -1,12 +1,12 @@
 <Configuration>
 
-  <Add OfficeClientEdition="32" Channel="SemiAnnualPreview" Version="test">
+  <Add OfficeClientEdition="64" Channel="MonthlyEnterprise" Version="16.0.">
     <Product ID="O365ProPlusRetail">
       <Language ID="en-us" />
     </Product>
   </Add>
 
-  <!--  <Updates Enabled="True" Channel="SemiAnnualPreview" />  -->
+  <!--  <Updates Enabled="False" Channel="MonthlyEnterprise" />  -->
 
   <!--  <Display Level="None" AcceptEULA="TRUE" />  -->
 
