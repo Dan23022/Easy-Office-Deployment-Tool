@@ -17,7 +17,7 @@ class MyWindow(QtWidgets.QMainWindow):
     def error_message_fun(self):
         error_message = QMessageBox()
         error_message.setIcon(QMessageBox.Warning)
-        error_message.setWindowTitle('Invalid Input Detected')
+        error_message.setWindowTitle('Error')
         error_message.setText("Invalid input detected in build edit area")
         error_message.exec_()
 
