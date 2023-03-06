@@ -1,11 +1,11 @@
-from PyQt5 import QtWidgets, uic
-from PyQt5.QtCore import Qt
+import threading
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
-from PyQt5.uic.properties import QtGui, QtCore
 import sys
 import xml.etree.ElementTree as ET
 import os
 import regex as re
+from qtpy import uic
 
 
 class MyWindow(QtWidgets.QMainWindow):
@@ -14,6 +14,19 @@ class MyWindow(QtWidgets.QMainWindow):
         uic.loadUi('main.ui', self)
         app.setStyle('windowsvista')
         self.submit_button.clicked.connect(self.submit)
+
+
+    def close_message(self):
+        self.close_message = QMessageBox.question(self, 'Close after run?', "Would you like the downloader to "
+                                                                            "automaticaly close after it runs?",
+                                                                             QMessageBox.Yes | QMessageBox.No, )
+
+        if self.close_message == QMessageBox.Yes:
+            mainWindow.hide()
+            pass
+        else:
+            pass
+
 
     def error_message_fun(self):
         error_message = QMessageBox()
@@ -68,7 +81,9 @@ class MyWindow(QtWidgets.QMainWindow):
                 comment.text = f"  <Updates Enabled=\"{enable_updates}\" Channel=\"{desired_channel}\" />  "
 
         tree.write("config.xml")
+        #self.close_message()
         os.system('setup /configure config.xml')
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
