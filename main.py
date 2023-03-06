@@ -6,13 +6,11 @@ import sys
 import xml.etree.ElementTree as ET
 import os
 import regex as re
-from PyQt5.QtWidgets import QStyleFactory
 
 
 class MyWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        print(QStyleFactory.keys())
         uic.loadUi('main.ui', self)
         app.setStyle('windowsvista')
         self.submit_button.clicked.connect(self.submit)
