@@ -15,17 +15,11 @@ install the following python package(s): <br />
     main.py
     main.ui
     config.xml
-    setup.exe (See bellow)
+    setup.exe
 
-To download the setup.exe, You will need to download and install the microsoft office deployment tool which can be found here: <br />
-    https://www.microsoft.com/en-us/download/details.aspx?id=49117
-
-Once installed, Go to the location you installed the deployment tool too and copy and paste the Setup.exe to the same location as the python script.
-   
-**run the main.py python file from an IDE or from command line and voila :)** <br />
+###Last step
+run the main.py python file from an IDE or from command line and voila :) <br />
    
 Leave the build field blank for the latest version. 
-  
-![image](https://user-images.githubusercontent.com/95471799/216653273-4060e392-cb7e-4385-b605-de43e3cbbb18.png)
 
-
+![img.png](img.png)
