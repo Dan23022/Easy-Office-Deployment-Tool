@@ -5,7 +5,7 @@
     enable or disable automatic updates
 
 ## How to run the easy way <br />
-**download the compiled code and exe from here:**<br /> https://drive.google.com/file/d/1g0H9Q-KoylrwqsD5q8Q6HHXlNWgz6Vb4/view?usp=sharing 
+**Download files from the latest releases and follow the instructions**
 
 ## How to run the more difficult way (but still pretty easy) <br />
 install the following python package(s): <br />
