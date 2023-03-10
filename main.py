@@ -1,11 +1,10 @@
-import threading
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
 import sys
 import xml.etree.ElementTree as ET
 import os
-import regex as re
 from qtpy import uic
+import regex as re
 
 
 class MyWindow(QtWidgets.QMainWindow):
@@ -16,19 +15,7 @@ class MyWindow(QtWidgets.QMainWindow):
         self.submit_button.clicked.connect(self.submit)
 
 
-    def close_message(self):
-        self.close_message = QMessageBox.question(self, 'Close after run?', "Would you like the downloader to "
-                                                                            "automaticaly close after it runs?",
-                                                                             QMessageBox.Yes | QMessageBox.No, )
-
-        if self.close_message == QMessageBox.Yes:
-            mainWindow.hide()
-            pass
-        else:
-            pass
-
-
-    def error_message_fun(self):
+    def error_message_fun(self): #Error message for invalid data being entered into bit field
         error_message = QMessageBox()
         error_message.setIcon(QMessageBox.Warning)
         error_message.setWindowTitle('Error')
@@ -51,24 +38,11 @@ class MyWindow(QtWidgets.QMainWindow):
 
         for elememnt in root.iter():
             if elememnt.tag == "Add":
-
                 if office_build == "":
                     elememnt.attrib["Version"] = f"{office_build}"
 
-                elif re.search('[a-zA-Z]', office_build) and not re.search('[.]', office_build):
-                    self.error_message_fun()
-                    return
-
-                elif office_build.isalnum() and office_build.isascii():
-                    self.error_message_fun()
-                    return
-
-                elif re.search('[.]', office_build) and not re.search('[a-zA-Z]', office_build):
-                    elememnt.attrib["Version"] = f"16.0.{office_build}"
-
                 else:
-                    self.error_message_fun()
-                    return
+                    elememnt.attrib["Version"] = f"16.0.{office_build}"
 
         for elememnt in root.iter():
             if elememnt.tag == "Add":
@@ -80,9 +54,19 @@ class MyWindow(QtWidgets.QMainWindow):
             if "Enabled" in comment.text:
                 comment.text = f"  <Updates Enabled=\"{enable_updates}\" Channel=\"{desired_channel}\" />  "
 
+        pup_up = Pop_Up(self)
+        pup_up.exec()
         tree.write("config.xml")
-        #self.close_message()
         os.system('setup /configure config.xml')
+
+
+class Pop_Up(QDialog):
+    def __init__(self, parent=None):
+        super().__init__()
+        uic.loadUi('pop_up.ui', self)
+        app.setStyle('windowsvista')
+
+        self.buttonBox.accepted.connect(lambda: mainWindow.hide())
 
 
 if __name__ == '__main__':
