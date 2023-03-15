@@ -16,7 +16,6 @@ class MyWindow(QtWidgets.QMainWindow):
         self.channel_dropdown.activated.connect(self.office_versions)
         self.submit_button.clicked.connect(self.submit)
 
-
     def error_message_fun(self): #Error message for invalid data being entered into bit field
         error_message = QMessageBox()
         error_message.setIcon(QMessageBox.Warning)
@@ -40,7 +39,6 @@ class MyWindow(QtWidgets.QMainWindow):
             if self.channel_dropdown.currentText() == "SemiAnnualPreview":
                 if "semi-annual-enterprise-channel-preview" in str(link.get('href')):
                     self.office_build_dropdown.addItem(link.getText())
-
 
             if self.channel_dropdown.currentText() == "SemiAnnual":
                 if "semi-annual-enterprise-channel" in str(link.get('href')):
@@ -87,7 +85,6 @@ class MyWindow(QtWidgets.QMainWindow):
         tree.write("config.xml")
         os.system('setup /configure config.xml')
 
-
 class Pop_Up(QDialog):
     def __init__(self, parent=None):
         super().__init__()
@@ -95,7 +92,6 @@ class Pop_Up(QDialog):
         app.setStyle('windowsvista')
 
         self.buttonBox.accepted.connect(lambda: mainWindow.hide())
-
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

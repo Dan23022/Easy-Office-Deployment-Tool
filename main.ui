@@ -293,6 +293,7 @@ alternate-background-color: rgb(227, 227, 227);</string>
  </widget>
  <tabstops>
   <tabstop>channel_dropdown</tabstop>
+  <tabstop>office_build_dropdown</tabstop>
   <tabstop>bit_dropdown</tabstop>
   <tabstop>enable_updates_dropdown</tabstop>
   <tabstop>submit_button</tabstop>
