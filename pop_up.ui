@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>468</width>
-    <height>117</height>
+    <width>487</width>
+    <height>106</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>471</width>
+     <width>491</width>
      <height>41</height>
     </rect>
    </property>
@@ -53,7 +53,7 @@
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Would you like the close the application while office downloads</string>
+    <string>Would you like the close the application while office downloads?</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
