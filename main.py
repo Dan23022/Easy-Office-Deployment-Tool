@@ -4,7 +4,6 @@ import sys
 import xml.etree.ElementTree as ET
 import os
 from qtpy import uic
-import regex as re
 
 
 class MyWindow(QtWidgets.QMainWindow):
