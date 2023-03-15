@@ -7,9 +7,6 @@
 ## How to run the easy way <br />
 **Download files from the latest releases and follow the instructions**
 
-## How to run the more difficult way (but still pretty easy) <br />
-install the following python package(s): <br />
-1. pyqt5 <br />
 
 ### Make sure the following files are in the same folder: <br />
     main.py
@@ -17,7 +14,7 @@ install the following python package(s): <br />
     config.xml
     setup.exe
 
-### Last step
+### How to run .py file
 run the main.py python file from an IDE or from command line and voila :) <br />
    
 Leave the build field blank for the latest version. 
