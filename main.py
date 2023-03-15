@@ -4,6 +4,8 @@ import sys
 import xml.etree.ElementTree as ET
 import os
 from qtpy import uic
+import requests
+from bs4 import BeautifulSoup
 
 
 class MyWindow(QtWidgets.QMainWindow):
@@ -11,6 +13,7 @@ class MyWindow(QtWidgets.QMainWindow):
         super().__init__()
         uic.loadUi('main.ui', self)
         app.setStyle('windowsvista')
+        self.channel_dropdown.activated.connect(self.office_versions)
         self.submit_button.clicked.connect(self.submit)
 
 
@@ -21,10 +24,36 @@ class MyWindow(QtWidgets.QMainWindow):
         error_message.setText("Invalid input detected in build edit area")
         error_message.exec_()
 
+    def office_versions(self):
+        url = 'https://learn.microsoft.com/en-us/officeupdates/update-history-microsoft365-apps-by-date'
+        reqs = requests.get(url)
+        soup = BeautifulSoup(reqs.text, 'html.parser')
+        self.office_build_dropdown.clear()
+        self.office_build_dropdown.setCurrentText("")
+
+        urls = []
+        for link in soup.find_all('a'):
+            if self.channel_dropdown.currentText() == "Current":
+                if "current-channel" in str(link.get('href')):
+                    self.office_build_dropdown.addItem(link.getText())
+
+            if self.channel_dropdown.currentText() == "SemiAnnualPreview":
+                if "semi-annual-enterprise-channel-preview" in str(link.get('href')):
+                    self.office_build_dropdown.addItem(link.getText())
+
+
+            if self.channel_dropdown.currentText() == "SemiAnnual":
+                if "semi-annual-enterprise-channel" in str(link.get('href')):
+                    self.office_build_dropdown.addItem(link.getText())
+
+            if self.channel_dropdown.currentText() == "MonthlyEnterprise":
+                if "monthly-enterprise-channel" in str(link.get('href')):
+                    self.office_build_dropdown.addItem(link.getText())
+
     def submit(self):
         desired_channel = self.channel_dropdown.currentText()
         bit = self.bit_dropdown.currentText()
-        office_build = self.office_build_edit_area.text()
+        office_build = self.office_build_dropdown.currentText()
         enable_updates = self.enable_updates_dropdown.currentText()
 
         parser = ET.XMLParser(target=ET.TreeBuilder(insert_comments=True))
@@ -41,7 +70,7 @@ class MyWindow(QtWidgets.QMainWindow):
                     elememnt.attrib["Version"] = f"{office_build}"
 
                 else:
-                    elememnt.attrib["Version"] = f"16.0.{office_build}"
+                    elememnt.attrib["Version"] = f"16.0.{office_build[20:31]}"
 
         for elememnt in root.iter():
             if elememnt.tag == "Add":

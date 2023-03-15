@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>616</width>
+    <width>776</width>
     <height>350</height>
    </rect>
   </property>
@@ -32,9 +32,9 @@
    <widget class="QComboBox" name="channel_dropdown">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>30</y>
-      <width>321</width>
+      <x>320</x>
+      <y>40</y>
+      <width>421</width>
       <height>41</height>
      </rect>
     </property>
@@ -87,9 +87,9 @@ alternate-background-color: rgb(227, 227, 227);</string>
    <widget class="QLabel" name="office_channel_label">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>30</y>
-      <width>201</width>
+      <x>120</x>
+      <y>40</y>
+      <width>241</width>
       <height>41</height>
      </rect>
     </property>
@@ -108,9 +108,9 @@ alternate-background-color: rgb(227, 227, 227);</string>
    <widget class="QLabel" name="enable_updates_label">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>210</y>
-      <width>211</width>
+      <x>110</x>
+      <y>220</y>
+      <width>241</width>
       <height>41</height>
      </rect>
     </property>
@@ -129,9 +129,9 @@ alternate-background-color: rgb(227, 227, 227);</string>
    <widget class="QComboBox" name="enable_updates_dropdown">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>210</y>
-      <width>321</width>
+      <x>320</x>
+      <y>220</y>
+      <width>421</width>
       <height>41</height>
      </rect>
     </property>
@@ -160,9 +160,9 @@ alternate-background-color: rgb(227, 227, 227);</string>
    <widget class="QLabel" name="office_build_label">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>90</y>
-      <width>161</width>
+      <x>150</x>
+      <y>100</y>
+      <width>191</width>
       <height>41</height>
      </rect>
     </property>
@@ -178,35 +178,11 @@ alternate-background-color: rgb(227, 227, 227);</string>
      <string>Office build:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="office_build_edit_area">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>90</y>
-      <width>321</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-    <property name="accessibleName">
-     <string>Office build edit area</string>
-    </property>
-    <property name="accessibleDescription">
-     <string/>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(227, 227, 227);</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="submit_button">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>280</y>
+      <x>280</x>
+      <y>290</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -226,9 +202,9 @@ alternate-background-color: rgb(227, 227, 227);</string>
    <widget class="QLabel" name="bit_label">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>150</y>
-      <width>241</width>
+      <x>60</x>
+      <y>160</y>
+      <width>281</width>
       <height>41</height>
      </rect>
     </property>
@@ -247,9 +223,9 @@ alternate-background-color: rgb(227, 227, 227);</string>
    <widget class="QComboBox" name="bit_dropdown">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>150</y>
-      <width>321</width>
+      <x>320</x>
+      <y>160</y>
+      <width>421</width>
       <height>41</height>
      </rect>
     </property>
@@ -275,21 +251,48 @@ alternate-background-color: rgb(227, 227, 227);</string>
      </property>
     </item>
    </widget>
+   <widget class="QComboBox" name="office_build_dropdown">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>100</y>
+      <width>421</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="accessibleName">
+     <string>Office build dropdown</string>
+    </property>
+    <property name="accessibleDescription">
+     <string/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(227, 227, 227);
+alternate-background-color: rgb(227, 227, 227);</string>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+   </widget>
    <zorder>office_channel_label</zorder>
    <zorder>enable_updates_label</zorder>
    <zorder>enable_updates_dropdown</zorder>
    <zorder>office_build_label</zorder>
-   <zorder>office_build_edit_area</zorder>
    <zorder>submit_button</zorder>
    <zorder>bit_label</zorder>
    <zorder>bit_dropdown</zorder>
    <zorder>channel_dropdown</zorder>
+   <zorder>office_build_dropdown</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
   <tabstop>channel_dropdown</tabstop>
-  <tabstop>office_build_edit_area</tabstop>
   <tabstop>bit_dropdown</tabstop>
   <tabstop>enable_updates_dropdown</tabstop>
   <tabstop>submit_button</tabstop>
