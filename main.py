@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QDialog
 import sys
 import xml.etree.ElementTree as ET
 import os
@@ -8,7 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-class MyWindow(QtWidgets.QMainWindow):
+class MyWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('main.ui', self)
@@ -16,7 +16,7 @@ class MyWindow(QtWidgets.QMainWindow):
         self.channel_dropdown.activated.connect(self.office_versions)
         self.submit_button.clicked.connect(self.submit)
 
-    def error_message_fun(self): #Error message for invalid data being entered into bit field
+    def error_message_fun(self):
         error_message = QMessageBox()
         error_message.setIcon(QMessageBox.Warning)
         error_message.setWindowTitle('Error')
