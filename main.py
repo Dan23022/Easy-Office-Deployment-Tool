@@ -217,6 +217,7 @@ class Ui_MainWindow(object):
         pup_up.exec()
         tree.write("config.xml")
         os.system('setup /configure config.xml')
+        quit()
 
 
 class Ui_close_message(object):
