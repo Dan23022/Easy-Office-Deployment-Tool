@@ -213,52 +213,10 @@ class Ui_MainWindow(object):
             if "Enabled" in comment.text:
                 comment.text = f"  <Updates Enabled=\"{enable_updates}\" Channel=\"{desired_channel}\" />  "
 
-        pup_up = Pop_Up()
-        pup_up.exec()
+        mainWindow.hide()
         tree.write("config.xml")
         os.system('setup /configure config.xml')
         quit()
-
-
-class Ui_close_message(object):
-    def setupUi(self, close_message):
-        close_message.setObjectName("close_message")
-        close_message.resize(487, 106)
-        close_message.setStyleSheet("background-color: rgb(77, 77, 77);")
-        self.buttonBox = QtWidgets.QDialogButtonBox(close_message)
-        self.buttonBox.setGeometry(QtCore.QRect(80, 50, 371, 51))
-        self.buttonBox.setStyleSheet("background-color: rgb(227, 227, 227);")
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.No|QtWidgets.QDialogButtonBox.Yes)
-        self.buttonBox.setObjectName("buttonBox")
-        self.label = QtWidgets.QLabel(close_message)
-        self.label.setGeometry(QtCore.QRect(0, 10, 491, 41))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.label.setFont(font)
-        self.label.setStyleSheet("color: rgb(255, 255, 255);")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
-
-        self.retranslateUi(close_message)
-        self.buttonBox.accepted.connect(close_message.accept) # type: ignore
-        self.buttonBox.rejected.connect(close_message.reject) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(close_message)
-
-        self.buttonBox.accepted.connect(lambda: mainWindow.hide())
-
-    def retranslateUi(self, close_message):
-        _translate = QtCore.QCoreApplication.translate
-        close_message.setWindowTitle(_translate("close_message", "Dialog"))
-        self.label.setText(_translate("close_message", "Would you like the close the application while office downloads?"))
-
-
-class Pop_Up(QDialog):
-    def __init__(self, parent=None):
-        super(Pop_Up, self).__init__()
-        self.ui.setupUi(self)
-        self.ui = Ui_close_message()
-        app.setStyle('windowsvista')
 
 
 if __name__ == '__main__':
